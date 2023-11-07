@@ -1,0 +1,7 @@
+export enum ERouteName {
+  WORKOUT = 'WORKOUT',
+  PROFILE = 'PROFILE',
+  HISTORY = 'HISTORY',
+  EXERCISES = 'EXERCISES',
+  TRACKING = 'TRACKING',
+}

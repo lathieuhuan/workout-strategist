@@ -1,11 +1,5 @@
-<script setup lang="ts">
-import { WsButton } from '@/components';
-
-</script>
+<script></script>
 
 <template>
-  <main>
-    <p class="text-xl">This is Home</p>
-    <WsButton>Click</WsButton>
-  </main>
+  <div>This is History</div>
 </template>

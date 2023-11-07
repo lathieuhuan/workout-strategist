@@ -9,15 +9,9 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
-  color: var(--text-primary);
-  background-color: #FCFFFF;
-  --text-primary: #1D0200;
-}
 
+  @apply text-primary-900 bg-light;
+}
 body.dark-mode {
-  background-color: #7B3F00;
-  --text-primary: #FCFFFF;
-  --text-primary-disable: #1D0200;
-  --surface-900: #1D0200;
+  @apply text-light bg-primary-900;
 }

@@ -1,37 +1,50 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router';
-import { WsNavBar, NavItem, HistoryIcon } from './components';
+import { RouterLink, RouterView, useRoute } from 'vue-router';
+import { WsNavBar, NavItem, HistoryIcon, DumbbellIcon, FireIcon, ProfileIcon } from './components';
+import { ERouteName } from './constants';
+
+const route = useRoute();
 
 const tabs: NavItem[] = [
   {
     label: 'Profile',
-    value: 'profile',
-    icon: HistoryIcon,
-    props: { to: '/profile' },
+    value: ERouteName.PROFILE,
+    icon: ProfileIcon,
+    props: {
+      to: { name: ERouteName.PROFILE },
+    },
   },
   {
     label: 'History',
-    value: 'history',
+    value: ERouteName.HISTORY,
     icon: HistoryIcon,
-    props: { to: '/history' },
+    props: {
+      to: { name: ERouteName.HISTORY },
+    },
   },
   {
     label: 'Workout',
-    value: 'workout',
-    icon: HistoryIcon,
-    props: { to: '/' },
+    value: ERouteName.WORKOUT,
+    icon: FireIcon,
+    props: {
+      to: { name: ERouteName.WORKOUT },
+    },
   },
   {
     label: 'Exercises',
-    value: 'exercises',
-    icon: HistoryIcon,
-    props: { to: '/exercises' },
+    value: ERouteName.EXERCISES,
+    icon: DumbbellIcon,
+    props: {
+      to: { name: ERouteName.EXERCISES },
+    },
   },
   {
     label: 'Tracking',
-    value: 'tracking',
+    value: ERouteName.TRACKING,
     icon: HistoryIcon,
-    props: { to: '/tracking' },
+    props: {
+      to: { name: ERouteName.TRACKING },
+    },
   },
 ];
 </script>
@@ -39,7 +52,10 @@ const tabs: NavItem[] = [
 <template>
   <RouterView />
 
-  <WsNavBar class="absolute bottom-0" :items="tabs" :item-is="RouterLink" />
+  <WsNavBar
+    class="absolute bottom-0"
+    :activeValue="route.name?.toString()"
+    :items="tabs"
+    :itemIs="RouterLink"
+  />
 </template>
-
-<style></style>
