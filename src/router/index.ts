@@ -1,13 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import {
-  ExercisesView,
-  HistoryView,
-  NotFoundView,
-  ProfileView,
-  TrackingView,
-  WorkoutView,
-} from '@/views';
 import { ERouteName } from '@/constants';
+import { WorkoutView } from '@/views/workout';
+import { ProfileView } from '@/views/profile';
+import { HistoryView } from '@/views/history';
+import { ExerciseView, ExercisesView } from '@/views/excercises';
+import NotFoundView from '@/views/NotFoundView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -29,13 +26,21 @@ const router = createRouter({
     },
     {
       path: '/exercises',
-      name: ERouteName.EXERCISES,
-      component: ExercisesView,
-    },
-    {
-      path: '/tracking',
-      name: ERouteName.TRACKING,
-      component: TrackingView,
+      // name: ERouteName.EXERCISES,
+      name: 'parent',
+      // component: ExercisesView,
+      children: [
+        {
+          path: '',
+          name: ERouteName.EXERCISES,
+          component: ExercisesView,
+        },
+        {
+          path: ':id',
+          name: 'EXERCISE',
+          component: ExerciseView,
+        },
+      ],
     },
     {
       path: '/:any(.*)*',

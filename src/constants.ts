@@ -3,5 +3,4 @@ export enum ERouteName {
   PROFILE = 'PROFILE',
   HISTORY = 'HISTORY',
   EXERCISES = 'EXERCISES',
-  TRACKING = 'TRACKING',
 }

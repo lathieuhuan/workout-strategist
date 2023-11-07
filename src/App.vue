@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { RouterLink, RouterView, useRoute } from 'vue-router';
-import { WsNavBar, NavItem, HistoryIcon, DumbbellIcon, FireIcon, ProfileIcon } from './components';
+import { WsTabBar, TabItem, HistoryIcon, DumbbellIcon, FireIcon, ProfileIcon } from './components';
 import { ERouteName } from './constants';
 
 const route = useRoute();
 
-const tabs: NavItem[] = [
+const tabs: TabItem[] = [
   {
     label: 'Profile',
     value: ERouteName.PROFILE,
@@ -38,24 +38,16 @@ const tabs: NavItem[] = [
       to: { name: ERouteName.EXERCISES },
     },
   },
-  {
-    label: 'Tracking',
-    value: ERouteName.TRACKING,
-    icon: HistoryIcon,
-    props: {
-      to: { name: ERouteName.TRACKING },
-    },
-  },
 ];
 </script>
 
 <template>
   <RouterView />
 
-  <WsNavBar
+  <WsTabBar
     class="absolute bottom-0"
-    :activeValue="route.name?.toString()"
     :items="tabs"
     :itemIs="RouterLink"
+    :activeValue="route.name?.toString()"
   />
 </template>
