@@ -15,3 +15,7 @@ body {
 body.dark-mode {
   @apply text-light bg-primary-900;
 }
+
+.flex-center {
+  @apply flex justify-center items-center;
+}

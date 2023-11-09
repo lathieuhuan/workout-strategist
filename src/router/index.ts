@@ -26,9 +26,7 @@ const router = createRouter({
     },
     {
       path: '/exercises',
-      // name: ERouteName.EXERCISES,
       name: 'parent',
-      // component: ExercisesView,
       children: [
         {
           path: '',

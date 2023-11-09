@@ -27,12 +27,12 @@ const style: StyleValue = {
   gridTemplateColumns: `repeat(${props.items.length}, minmax(0, 1fr))`,
 };
 
+const finalActiveValue = computed(() => props.activeValue ?? localActiveValue.value);
+
 const onClickTabItem = (item: TabItem) => {
   localActiveValue.value = item.value;
   emit('change', item.value, item);
 };
-
-const finalActiveValue = computed(() => props.activeValue ?? localActiveValue.value);
 </script>
 
 <template>
